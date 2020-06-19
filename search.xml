@@ -37,7 +37,7 @@
   </entry>
   <entry>
     <title>Leetcode题解020：有效的括号</title>
-    <url>/moersuo.github.io/2020/06/20/title/</url>
+    <url>/moersuo.github.io/2020/06/20/Leetcode%E9%A2%98%E8%A7%A3020%EF%BC%9A%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</url>
     <content><![CDATA[<h1 id="有效的括号"><a href="#有效的括号" class="headerlink" title="有效的括号"></a>有效的括号</h1><h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
 <p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。<br>有效字符串需满足：<br>1.左括号必须用相同类型的右括号闭合。<br>2.左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。</p>
 </blockquote>
