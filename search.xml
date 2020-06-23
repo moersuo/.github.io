@@ -103,4 +103,52 @@
         <tag>Leetcode题解</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Leetcode题解026：删除排序数组中的重复项</title>
+    <url>/moersuo.github.io/2020/06/23/Leetcode%E9%A2%98%E8%A7%A3026%EF%BC%9A%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</url>
+    <content><![CDATA[<h1 id="删除排序数组中的重复项"><a href="#删除排序数组中的重复项" class="headerlink" title="删除排序数组中的重复项"></a>删除排序数组中的重复项</h1><h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>给定一个排序数组，你需要在 原地 删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成</p>
+</blockquote>
+<h2 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h2><blockquote>
+<p>给定数组 nums = [1,1,2],<br>&emsp;<br>函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。<br>&emsp;<br>你不需要考虑数组中超出新长度后面的元素。</p>
+</blockquote>
+<h2 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h2><blockquote>
+<p>给定 nums = [0,0,1,1,1,2,2,3,3,4],<br>&emsp;<br>函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。<br>&emsp;<br>你不需要考虑数组中超出新长度后面的元素。</p>
+</blockquote>
+<p><strong>说明：</strong><br>为什么返回数值是整数，但输出的答案是数组呢?</p>
+<p>请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
+<p>你可以想象内部操作如下:</p>
+<blockquote>
+<p>// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝<br>int len = removeDuplicates(nums);<br>&emsp;<br>// 在函数里修改输入数组对于调用者是可见的。<br>// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。<br>for (int i = 0; i &lt; len; i++) {<br>print(nums[i]);<br>}’</p>
+<h2 id="官方题解：双指针"><a href="#官方题解：双指针" class="headerlink" title="官方题解：双指针"></a>官方题解：双指针</h2><p><strong>思路：</strong><br>数组完成排序后，我们可以放置两个指针 i和 j，其中 i 是慢指针，而 j 是快指针。只要 nums[i] = nums[j]，我们就增加 j 以跳过重复项。</p>
+</blockquote>
+<p>当我们遇到 nums[j] ≠ nums[i] 时，跳过重复项的运行已经结束，因此我们必须把它（nums[j]）的值复制到 nums[i + 1]。然后递增 i，接着我们将再次重复相同的过程，直到 j 到达数组的末尾为止。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; nums.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[j] != nums[i]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            nums[i] = nums[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度</strong>：O(n)，假设数组的长度是 n，那么 i 和 j分别最多遍历 n 步。<br><strong>空间复杂度</strong>：O(1)</p>
+<h2 id="优化："><a href="#优化：" class="headerlink" title="优化："></a>优化：</h2><p>考虑如下数组【0,1,2,3,4,5】。此时数组中没有重复元素，按照上面的说法，每次比较时 nums[j] 都不等于 nums[i]，因此就会将 j指向的元素原地复制一遍，这个操作其实是不必要的。</p>
+<p>因此我们可以添加一个小判断，当 j- i &gt; 1 时，才进行复制。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;nums.length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != nums[j])&#123;</span><br><span class="line">                <span class="keyword">if</span>(j-i &gt; <span class="number">1</span>)&#123;</span><br><span class="line">                    nums[i+<span class="number">1</span>] = nums[j];</span><br><span class="line">                &#125;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>时间复杂度</strong>：O(n)<br><strong>空间复杂度</strong>：O(1)</p>
+<h2 id="JS："><a href="#JS：" class="headerlink" title="JS："></a>JS：</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> size = nums.length;</span><br><span class="line">    <span class="keyword">if</span>(size==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> slowP = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> fastP = <span class="number">0</span>; fastP &lt; size; fastP++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[fastP] !== nums[slowP]) &#123;</span><br><span class="line">            slowP++;</span><br><span class="line">            nums[slowP] = nums[fastP]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slowP + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="变形：Leetcode027-移除元素"><a href="#变形：Leetcode027-移除元素" class="headerlink" title="变形：Leetcode027 移除元素"></a>变形：Leetcode027 移除元素</h2><p>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。</p>
+<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<h2 id="官方题解1：双指针"><a href="#官方题解1：双指针" class="headerlink" title="官方题解1：双指针"></a>官方题解1：双指针</h2><p><strong>思路：</strong><br>当 nums[j] 与给定的值相等时，递增 j 以跳过该元素。只要 nums[j]不等于val，我们就复制 nums[j]到 nums[i]并同时递增两个索引。重复这一过程，直到 j 到达数组的末尾，该数组的新长度为 i。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[j] != val) &#123;</span><br><span class="line">            nums[i] = nums[j];</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度：O(n)，<br>假设数组总共有 n 个元素，i 和 j 至少遍历 2n 步。<br>空间复杂度：O(1)</p>
+<h2 id="官方题解2：双指针–当要删除的元素很少时"><a href="#官方题解2：双指针–当要删除的元素很少时" class="headerlink" title="官方题解2：双指针–当要删除的元素很少时"></a>官方题解2：双指针–当要删除的元素很少时</h2><p><strong>思路：</strong><br>现在考虑数组包含很少的要删除的元素的情况。例如，num=[1，2，3，5，4]，Val=4。之前的算法会对前四个元素做不必要的复制操作。另一个例子是 num=[4，1，2，3，5]，Val=4。似乎没有必要将 [1，2，3，5]这几个元素左移一步，因为问题描述中提到元素的顺序可以更改。</p>
+<p>当我们遇到 nums[i] = val 时，我们可以将当前元素与最后一个元素进行交换，并释放最后一个元素。这实际上使数组的大小减少了 1。</p>
+<p>请注意，被交换的最后一个元素可能是您想要移除的值。但是不要担心，在下一次迭代中，我们仍然会检查这个元素。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n = nums.length;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] == val) &#123;</span><br><span class="line">            nums[i] = nums[n - <span class="number">1</span>];</span><br><span class="line">            <span class="comment">// reduce array size by one</span></span><br><span class="line">            n--;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度：O(n)，i 和 n 最多遍历 n 步。在这个方法中，赋值操作的次数等于要删除的元素的数量。因此，如果要移除的元素很少，效率会更高。<br>空间复杂度：O(1)。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>Leetcode题解</category>
+      </categories>
+      <tags>
+        <tag>Leetcode题解</tag>
+      </tags>
+  </entry>
 </search>
