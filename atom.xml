@@ -6,7 +6,7 @@
   <link href="/moersuo.github.io/atom.xml" rel="self"/>
   
   <link href="http://moersuo.github.io/"/>
-  <updated>2020-06-23T11:36:01.891Z</updated>
+  <updated>2020-08-17T01:26:35.235Z</updated>
   <id>http://moersuo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux下JDK安装问题</title>
+    <link href="http://moersuo.github.io/2020/08/17/Linux%E4%B8%8BJDK%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/"/>
+    <id>http://moersuo.github.io/2020/08/17/Linux%E4%B8%8BJDK%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/</id>
+    <published>2020-08-17T01:25:27.000Z</published>
+    <updated>2020-08-17T01:26:35.235Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="新的linux环境下配置JDK环境出现-bash-usr-local-jdk1-8-jdk1-8-0-181-bin-java-lib-ld-linux-so-2-bad-ELF-interpreter-No-such-file-or-directory"><a href="#新的linux环境下配置JDK环境出现-bash-usr-local-jdk1-8-jdk1-8-0-181-bin-java-lib-ld-linux-so-2-bad-ELF-interpreter-No-such-file-or-directory" class="headerlink" title="新的linux环境下配置JDK环境出现-bash: /usr/local/jdk1.8/jdk1.8.0_181/bin/java: /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory"></a>新的linux环境下配置JDK环境出现-bash: /usr/local/jdk1.8/jdk1.8.0_181/bin/java: /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory</h3><p><strong>解决方法：</strong></p><p>安装glibc.i686库</p><p>yum install glibc.i686</p><p>glibc是<a href="https://baike.baidu.com/item/GNU" target="_blank" rel="noopener">GNU</a>发布的libc库，即c<a href="https://baike.baidu.com/item/运行库/5587282" target="_blank" rel="noopener">运行库</a>。glibc是<a href="https://baike.baidu.com/item/linux系统/1732935" target="_blank" rel="noopener">linux系统</a>中最底层的<a href="https://baike.baidu.com/item/api/10154" target="_blank" rel="noopener">api</a>，几乎其它任何运行库都会依赖于glibc。glibc除了封装<a href="https://baike.baidu.com/item/linux" target="_blank" rel="noopener">linux</a>操作系统所提供的<a href="https://baike.baidu.com/item/系统服务/11027121" target="_blank" rel="noopener">系统服务</a>外，它本身也提供了许多其它一些必要功能服务的实现。由于 glibc 囊括了几乎所有的 <a href="https://baike.baidu.com/item/UNIX" target="_blank" rel="noopener">UNIX</a> 通行的标准，可以想见其内容包罗万象。</p><p>发行版中的i386/i686/x86-64的区别：bai<br>i386用来du处理32位系统，i686是i386的下集；x86-64用来处理64位系统。<br>linux发行zhi版中的i386/i686/x86-64各自含义：</p><p>1、i386通常被用来作为对daoIntel（英特尔）32位微处理器的统称；</p><p>2、i386的子集包含i686，i686适用于Pentium  Pro，也适用于K7架构的Athlon；</p><p>3、x86-64，又称“AMD64”或“x64”，是一种64位元的电脑处理器架构。它是建基于现有32位元的x86架构，由AMD公司所开发。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;新的linux环境下配置JDK环境出现-bash-usr-local-jdk1-8-jdk1-8-0-181-bin-java-lib-ld-linux-so-2-bad-ELF-interpreter-No-such-file-or-directory&quot;&gt;&lt;a 
+      
+    
+    </summary>
+    
+    
+      <category term="计算机基础" scheme="http://moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="Linux" scheme="http://moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://moersuo.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode题解026：删除排序数组中的重复项</title>
