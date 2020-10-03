@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>线程的五大状态 | Morsol</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="多线程" />
+    
+    <meta name="description" content="线程的五大状态：概述：线程的五大状态为：创建状态，就绪状态，阻塞状态，运行状态，死亡状态 new:  Thread t &#x3D; new Thread() 线程一旦创建，就进入到了创建状态。 就绪状态： 当调用start()方法，线程立即进入就绪状态，但不意味着立即调度执行。 运行状态：进入运行状态，线程才真正执行线程体的代码块。 阻塞状态： 当调用sleep，wait或同步锁定时，线程进入阻塞状态，就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程的五大状态">
+<meta property="og:url" content="http://moersuo.github.io/2020/09/29/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/index.html">
+<meta property="og:site_name" content="Morsol">
+<meta property="og:description" content="线程的五大状态：概述：线程的五大状态为：创建状态，就绪状态，阻塞状态，运行状态，死亡状态 new:  Thread t &#x3D; new Thread() 线程一旦创建，就进入到了创建状态。 就绪状态： 当调用start()方法，线程立即进入就绪状态，但不意味着立即调度执行。 运行状态：进入运行状态，线程才真正执行线程体的代码块。 阻塞状态： 当调用sleep，wait或同步锁定时，线程进入阻塞状态，就">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-29T09:26:52.000Z">
+<meta property="article:modified_time" content="2020-10-03T08:25:10.579Z">
+<meta property="article:author" content="morsol">
+<meta property="article:tag" content="多线程">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Morsol" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/moersuo.github.io/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/moersuo.github.io/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/moersuo.github.io/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/moersuo.github.io/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/moersuo.github.io/css/style.css">
+
+
+    
+<script src="/moersuo.github.io/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/moersuo.github.io/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/moersuo.github.io/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/moersuo.github.io/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/moersuo.github.io/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/">后段学习</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/moersuo.github.io/',
+        CONTENT_URL: '/moersuo.github.io/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/moersuo.github.io/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/">后段学习</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-线程的五大状态" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        线程的五大状态
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/moersuo.github.io/2020/09/29/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/" class="article-date">
+         <time datetime="2020-09-29T09:26:52.000Z" itemprop="datePublished">2020-09-29</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/moersuo.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a>
+    </div>
+
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">本文字数: </span>
+      <span class="post-count">994</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">阅读时长: </span>
+      <span class="post-count">4 分钟 </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="线程的五大状态："><a href="#线程的五大状态：" class="headerlink" title="线程的五大状态："></a>线程的五大状态：</h1><h2 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h2><p><strong>线程的五大状态为：创建状态，就绪状态，阻塞状态，运行状态，死亡状态</strong></p>
+<p><strong>new:</strong>  Thread t = new Thread() 线程一旦创建，就进入到了创建状态。</p>
+<p><strong>就绪状态：</strong> 当调用start()方法，线程立即进入就绪状态，但不意味着立即调度执行。</p>
+<p><strong>运行状态：</strong>进入运行状态，线程才真正执行线程体的代码块。</p>
+<p><strong>阻塞状态：</strong> 当调用sleep，wait或同步锁定时，线程进入阻塞状态，就是代码不往下执行，阻塞事件解除后，重新进入就绪状态，等待cpu调度执行。</p>
+<p><strong>dead：</strong>线程中断或结束，一旦进入死亡状态，就不能再次启动。</p>
+<hr>
+<h2 id="停止线程："><a href="#停止线程：" class="headerlink" title="停止线程："></a>停止线程：</h2><p>1.不推荐使用JDK提供的stop(),destory()方法</p>
+<p>2.最好让线程自己停下来</p>
+<p>3.建议使用一个标志位进行终止变量，当flag = false 时，终止线程运行。</p>
+<h3 id="样例："><a href="#样例：" class="headerlink" title="样例："></a>样例：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> multithread.state;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestStop</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.设置1个标识位</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(flag)&#123;</span><br><span class="line">            System.out.println(<span class="string">"run...Thread"</span>+i++);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2.设置一个公开的方法停止线程，转换标识位</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.flag = <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        TestStop testStop = <span class="keyword">new</span> TestStop();</span><br><span class="line">        <span class="keyword">new</span> Thread(testStop).start();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">"lalala"</span>+i);</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">900</span>)&#123;</span><br><span class="line">                <span class="comment">//调用stop方法切换标识为，让线程停止</span></span><br><span class="line">                testStop.stop();</span><br><span class="line">                System.out.println(<span class="string">"线程该停止了"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="线程休眠："><a href="#线程休眠：" class="headerlink" title="线程休眠："></a>线程休眠：</h2><ul>
+<li>sleep(时间) 指定当前线程阻塞的毫秒数；</li>
+<li>sleep存在异常interruptedException;</li>
+<li>sleep时间达到后线程进入就绪状态</li>
+<li>sleep可以模拟网络延时，倒计时等。</li>
+<li>每个对象都有一个锁，sleep不会释放锁。</li>
+</ul>
+<h3 id="样例1：模拟抢票"><a href="#样例1：模拟抢票" class="headerlink" title="样例1：模拟抢票"></a>样例1：模拟抢票</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> multithread.state;</span><br><span class="line"><span class="comment">// 模拟抢票</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSleep</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="comment">// 票数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> ticketNums = <span class="number">10</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ticketNums &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">"抢到了第"</span>+ticketNums--+<span class="string">"张票"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 模拟延时</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">200</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        TestSleep ticket = <span class="keyword">new</span> TestSleep();</span><br><span class="line">        <span class="keyword">new</span> Thread(ticket,<span class="string">"小明"</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(ticket,<span class="string">"小王"</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(ticket,<span class="string">"小张"</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例2：模拟倒计时"><a href="#样例2：模拟倒计时" class="headerlink" title="样例2：模拟倒计时"></a>样例2：模拟倒计时</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> multithread.state;</span><br><span class="line"><span class="comment">//模拟倒计时</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSleep2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">turndown</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            System.out.println(num--);</span><br><span class="line">            <span class="keyword">if</span>(num &lt; <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            turndown();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="线程礼让："><a href="#线程礼让：" class="headerlink" title="线程礼让："></a>线程礼让：</h2><ul>
+<li><p>礼让线程，让当前正在执行的线程暂停，但不阻塞。</p>
+</li>
+<li><p>将线程从运行状态转为就绪状态</p>
+</li>
+<li><p>让cpu重新调度，礼让不一定成功，看cpu心情。</p>
+</li>
+</ul>
+<h3 id="样例：-1"><a href="#样例：-1" class="headerlink" title="样例："></a>样例：</h3>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> multithread.state;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestYield</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args )</span></span>&#123;</span><br><span class="line">        MyYield testYield= <span class="keyword">new</span> MyYield();</span><br><span class="line">        <span class="keyword">new</span> Thread(testYield,<span class="string">"1"</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(testYield,<span class="string">"2"</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyYield</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">"开始运行"</span>);</span><br><span class="line">        Thread.yield();</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">"停止运行"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="线程强制执行："><a href="#线程强制执行：" class="headerlink" title="线程强制执行："></a>线程强制执行：</h2><ul>
+<li><p>某一个线程对象可以一直独占资源，其他线程阻塞，一直到该线程的程序执行结束。</p>
+</li>
+<li><p>可以想象成插队</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> multithread.state;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestJoin</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++)&#123;</span><br><span class="line">            System.out.println(<span class="string">"我是"</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        TestJoin testJoin = <span class="keyword">new</span> TestJoin();</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(testJoin);</span><br><span class="line">        thread.start();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">200</span>)&#123;</span><br><span class="line">                thread.join();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"你是"</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="观察线程状态："><a href="#观察线程状态：" class="headerlink" title="观察线程状态："></a>观察线程状态：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> multithread.state;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">//观察线程状态</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"lalala"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//观察状态</span></span><br><span class="line">        Thread.State state = thread.getState();</span><br><span class="line">        System.out.println(state); <span class="comment">// NEW</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//观察启动后</span></span><br><span class="line">        thread.start();</span><br><span class="line">        state = thread.getState();</span><br><span class="line">        System.out.println(state); <span class="comment">//RUN</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(state != Thread.State.TERMINATED)&#123;<span class="comment">//只要线程不停止，就一直输出状态</span></span><br><span class="line">            Thread.sleep(<span class="number">100</span>);</span><br><span class="line">            state = thread.getState();<span class="comment">//更新线程状态</span></span><br><span class="line">            System.out.println(state);<span class="comment">//输出状态</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>​    </p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://moersuo.github.io/2020/09/29/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/" data-id="ckftm10r80001a0t9bw8we4fu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "morsol"
+        },
+        "headline": "线程的五大状态",
+        "image": "http://moersuo.github.io",
+        "keywords": "多线程",
+        "genre": "后段学习 多线程",
+        "datePublished": "2020-09-29",
+        "dateCreated": "2020-09-29",
+        "dateModified": "2020-10-03",
+        "url": "http://moersuo.github.io/2020/09/29/线程的五大状态/",
+        "description": "线程的五大状态：概述：线程的五大状态为：创建状态，就绪状态，阻塞状态，运行状态，死亡状态
+new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态。
+就绪状态： 当调用start()方法，线程立即进入就绪状态，但不意味着立即调度执行。
+运行状态：进入运行状态，线程才真正执行线程体的代码块。
+阻塞状态： 当调用sleep，wait或同步锁定时，线程进入阻塞状态，就",
+        "wordCount": 1783
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/moersuo.github.io/atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/moersuo.github.io/2020/10/02/%E5%89%91%E6%8C%87offer-05%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            剑指offer 05替换空格
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/moersuo.github.io/2020/09/29/%E5%89%91%E6%8C%87offer-04%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">剑指offer 04二维数组中的查找</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></p>
+                            <p class="item-title"><a href="/moersuo.github.io/2020/10/02/%E5%89%91%E6%8C%87offer-05%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/" class="title">剑指offer 05替换空格</a></p>
+                            <p class="item-date"><time datetime="2020-10-02T08:09:27.000Z" itemprop="datePublished">2020-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/">后段学习</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></p>
+                            <p class="item-title"><a href="/moersuo.github.io/2020/09/29/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/" class="title">线程的五大状态</a></p>
+                            <p class="item-date"><time datetime="2020-09-29T09:26:52.000Z" itemprop="datePublished">2020-09-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></p>
+                            <p class="item-title"><a href="/moersuo.github.io/2020/09/29/%E5%89%91%E6%8C%87offer-04%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/" class="title">剑指offer 04二维数组中的查找</a></p>
+                            <p class="item-date"><time datetime="2020-09-29T08:26:50.000Z" itemprop="datePublished">2020-09-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></p>
+                            <p class="item-title"><a href="/moersuo.github.io/2020/09/28/%E5%89%91%E6%8C%87offer-03%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/" class="title">剑指offer 03数组中重复的数字</a></p>
+                            <p class="item-date"><time datetime="2020-09-28T12:06:24.000Z" itemprop="datePublished">2020-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></p>
+                            <p class="item-title"><a href="/moersuo.github.io/2020/09/27/%E5%89%91%E6%8C%87offer-22%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/" class="title">剑指offer 22链表中倒数第k个节点</a></p>
+                            <p class="item-date"><time datetime="2020-09-27T13:58:22.000Z" itemprop="datePublished">2020-09-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/">后段学习</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/09/">九月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/08/">八月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode%E9%A2%98%E8%A7%A3/" rel="tag">Leetcode题解</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/moersuo.github.io/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 morsol</p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+    
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv">
+                曾有<span id="busuanzi_value_site_pv"></span>次来访
+        </span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv" style='display:none'>
+                共<span id="busuanzi_value_site_uv"></span>名小伙伴
+        </span>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://moersuo.github.io/2020/09/29/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/moersuo.github.io/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/moersuo.github.io/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/moersuo.github.io/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/moersuo.github.io/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/moersuo.github.io/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/moersuo.github.io/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/moersuo.github.io/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/moersuo.github.io/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/moersuo.github.io/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/moersuo.github.io/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/moersuo.github.io/js/main.js"></script>
+
+
+</body>
+</html>
