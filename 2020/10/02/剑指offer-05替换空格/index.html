@@ -12,15 +12,15 @@
     
     <meta name="keywords" content="剑指offer" />
     
-    <meta name="description" content="剑指offer 05替换空格：题目： 请实现一个函数，把字符串 s 中的每个空格替换成”%20”。  示例： 输入：s &#x3D; “We are happy.”输出：”We%20are%20happy.”  限制： 0 &lt;&#x3D; s 的长度 &lt;&#x3D; 10000   官方法一：思路：由于每次替换从 1 个字符变成 3 个字符，使用字符数组可方便地进行替换。建立字符数组地长度为 s 的长度的 3 倍，">
+    <meta name="description" content="题目： 请实现一个函数，把字符串 s 中的每个空格替换成”%20”。  示例： 输入：s &#x3D; “We are happy.”输出：”We%20are%20happy.”  限制： 0 &lt;&#x3D; s 的长度 &lt;&#x3D; 10000   官方法一：思路：由于每次替换从 1 个字符变成 3 个字符，使用字符数组可方便地进行替换。建立字符数组地长度为 s 的长度的 3 倍，这样可保证字符数组可以容纳所有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer 05替换空格">
 <meta property="og:url" content="http://moersuo.github.io/2020/10/02/%E5%89%91%E6%8C%87offer-05%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/index.html">
 <meta property="og:site_name" content="Morsol">
-<meta property="og:description" content="剑指offer 05替换空格：题目： 请实现一个函数，把字符串 s 中的每个空格替换成”%20”。  示例： 输入：s &#x3D; “We are happy.”输出：”We%20are%20happy.”  限制： 0 &lt;&#x3D; s 的长度 &lt;&#x3D; 10000   官方法一：思路：由于每次替换从 1 个字符变成 3 个字符，使用字符数组可方便地进行替换。建立字符数组地长度为 s 的长度的 3 倍，">
+<meta property="og:description" content="题目： 请实现一个函数，把字符串 s 中的每个空格替换成”%20”。  示例： 输入：s &#x3D; “We are happy.”输出：”We%20are%20happy.”  限制： 0 &lt;&#x3D; s 的长度 &lt;&#x3D; 10000   官方法一：思路：由于每次替换从 1 个字符变成 3 个字符，使用字符数组可方便地进行替换。建立字符数组地长度为 s 的长度的 3 倍，这样可保证字符数组可以容纳所有">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-02T08:09:27.000Z">
-<meta property="article:modified_time" content="2020-10-03T11:45:10.807Z">
+<meta property="article:modified_time" content="2020-10-04T06:42:23.900Z">
 <meta property="article:author" content="morsol">
 <meta property="article:tag" content="剑指offer">
 <meta name="twitter:card" content="summary">
@@ -90,7 +90,7 @@
                                     <a class="main-nav-list-link" href="/moersuo.github.io/">主页</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode/">Leetcode</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a></li></ul></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a></li></ul></li></ul>
                                     
                         </ul>
                         <nav id="sub-nav">
@@ -190,10 +190,10 @@
    <div class="article-counter">
       <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">本文字数: </span>
-      <span class="post-count">461</span>
+      <span class="post-count">453</span>
       <i class="fa fa-clock-o"></i>
       <span class="post-time-item-text">阅读时长: </span>
-      <span class="post-count">2 分钟 </span>
+      <span class="post-count">1 分钟 </span>
    </div>
 
 
@@ -207,7 +207,7 @@
 
             
 
-            <h1 id="剑指offer-05替换空格："><a href="#剑指offer-05替换空格：" class="headerlink" title="剑指offer 05替换空格："></a>剑指offer 05替换空格：</h1><h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+            <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
 <p>请实现一个函数，把字符串 <code>s</code> 中的每个空格替换成”%20”。</p>
 </blockquote>
 <h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><blockquote>
@@ -322,9 +322,9 @@
         "genre": "算法 剑指offer",
         "datePublished": "2020-10-02",
         "dateCreated": "2020-10-02",
-        "dateModified": "2020-10-03",
+        "dateModified": "2020-10-04",
         "url": "http://moersuo.github.io/2020/10/02/剑指offer-05替换空格/",
-        "description": "剑指offer 05替换空格：题目：
+        "description": "题目：
 请实现一个函数，把字符串 s 中的每个空格替换成”%20”。
 
 示例：
@@ -334,8 +334,8 @@
 0 &lt;= s 的长度 &lt;= 10000
 
 
-官方法一：思路：由于每次替换从 1 个字符变成 3 个字符，使用字符数组可方便地进行替换。建立字符数组地长度为 s 的长度的 3 倍，",
-        "wordCount": 512
+官方法一：思路：由于每次替换从 1 个字符变成 3 个字符，使用字符数组可方便地进行替换。建立字符数组地长度为 s 的长度的 3 倍，这样可保证字符数组可以容纳所有",
+        "wordCount": 506
     }
 </script>
 
@@ -419,7 +419,7 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode/">Leetcode</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a></p>
                             <p class="item-title"><a href="/moersuo.github.io/2020/10/04/Leetcode%E9%A2%98%E8%A7%A309-%E5%9B%9E%E6%96%87%E6%95%B0/" class="title">Leetcode题解09 回文数</a></p>
                             <p class="item-date"><time datetime="2020-10-04T03:36:19.000Z" itemprop="datePublished">2020-10-04</time></p>
                         </div>
@@ -470,7 +470,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode/">Leetcode</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -490,7 +490,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode/" rel="tag">Leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode%E9%A2%98%E8%A7%A3/" rel="tag">Leetcode题解</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode%E9%A2%98%E8%A7%A3/" rel="tag">Leetcode题解</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 

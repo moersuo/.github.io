@@ -12,15 +12,15 @@
     
     <meta name="keywords" content="剑指offer" />
     
-    <meta name="description" content="剑指offer 04：二维数组中的查找题目： 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。  示例：现有矩阵matrix如下  [  [1,   4,  7, 11, 15],  [2,   5,  8, 12, 19],  [3,   6,  9, 16, 2">
+    <meta name="description" content="题目： 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。  示例：现有矩阵matrix如下  [  [1,   4,  7, 11, 15],  [2,   5,  8, 12, 19],  [3,   6,  9, 16, 22],  [10, 13, 14, 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer 04二维数组中的查找">
 <meta property="og:url" content="http://moersuo.github.io/2020/09/29/%E5%89%91%E6%8C%87offer-04%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/index.html">
 <meta property="og:site_name" content="Morsol">
-<meta property="og:description" content="剑指offer 04：二维数组中的查找题目： 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。  示例：现有矩阵matrix如下  [  [1,   4,  7, 11, 15],  [2,   5,  8, 12, 19],  [3,   6,  9, 16, 2">
+<meta property="og:description" content="题目： 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。  示例：现有矩阵matrix如下  [  [1,   4,  7, 11, 15],  [2,   5,  8, 12, 19],  [3,   6,  9, 16, 22],  [10, 13, 14, 1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-29T08:26:50.000Z">
-<meta property="article:modified_time" content="2020-09-29T09:10:26.639Z">
+<meta property="article:modified_time" content="2020-10-04T06:42:12.115Z">
 <meta property="article:author" content="morsol">
 <meta property="article:tag" content="剑指offer">
 <meta name="twitter:card" content="summary">
@@ -90,7 +90,7 @@
                                     <a class="main-nav-list-link" href="/moersuo.github.io/">主页</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode/">Leetcode</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a></li></ul></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a></li></ul></li></ul>
                                     
                         </ul>
                         <nav id="sub-nav">
@@ -190,10 +190,10 @@
    <div class="article-counter">
       <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">本文字数: </span>
-      <span class="post-count">711</span>
+      <span class="post-count">699</span>
       <i class="fa fa-clock-o"></i>
       <span class="post-time-item-text">阅读时长: </span>
-      <span class="post-count">3 分钟 </span>
+      <span class="post-count">2 分钟 </span>
    </div>
 
 
@@ -207,7 +207,7 @@
 
             
 
-            <h1 id="剑指offer-04：二维数组中的查找"><a href="#剑指offer-04：二维数组中的查找" class="headerlink" title="剑指offer 04：二维数组中的查找"></a>剑指offer 04：二维数组中的查找</h1><h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+            <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
 <p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
 </blockquote>
 <h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><p><strong>现有矩阵matrix如下</strong></p>
@@ -321,15 +321,15 @@
         "genre": "算法 剑指offer",
         "datePublished": "2020-09-29",
         "dateCreated": "2020-09-29",
-        "dateModified": "2020-09-29",
+        "dateModified": "2020-10-04",
         "url": "http://moersuo.github.io/2020/09/29/剑指offer-04二维数组中的查找/",
-        "description": "剑指offer 04：二维数组中的查找题目：
+        "description": "题目：
 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
 
 示例：现有矩阵matrix如下
 
-[  [1,   4,  7, 11, 15],  [2,   5,  8, 12, 19],  [3,   6,  9, 16, 2",
-        "wordCount": 714
+[  [1,   4,  7, 11, 15],  [2,   5,  8, 12, 19],  [3,   6,  9, 16, 22],  [10, 13, 14, 1",
+        "wordCount": 708
     }
 </script>
 
@@ -413,7 +413,7 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode/">Leetcode</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a></p>
                             <p class="item-title"><a href="/moersuo.github.io/2020/10/04/Leetcode%E9%A2%98%E8%A7%A309-%E5%9B%9E%E6%96%87%E6%95%B0/" class="title">Leetcode题解09 回文数</a></p>
                             <p class="item-date"><time datetime="2020-10-04T03:36:19.000Z" itemprop="datePublished">2020-10-04</time></p>
                         </div>
@@ -464,7 +464,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode/">Leetcode</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -484,7 +484,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode/" rel="tag">Leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode%E9%A2%98%E8%A7%A3/" rel="tag">Leetcode题解</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode%E9%A2%98%E8%A7%A3/" rel="tag">Leetcode题解</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
