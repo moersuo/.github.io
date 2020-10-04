@@ -20,7 +20,7 @@
 <meta property="og:description" content="线程的五大状态：概述：线程的五大状态为：创建状态，就绪状态，阻塞状态，运行状态，死亡状态 new:  Thread t &#x3D; new Thread() 线程一旦创建，就进入到了创建状态。 就绪状态： 当调用start()方法，线程立即进入就绪状态，但不意味着立即调度执行。 运行状态：进入运行状态，线程才真正执行线程体的代码块。 阻塞状态： 当调用sleep，wait或同步锁定时，线程进入阻塞状态，就">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-29T09:26:52.000Z">
-<meta property="article:modified_time" content="2020-10-03T08:25:10.579Z">
+<meta property="article:modified_time" content="2020-10-03T11:55:29.590Z">
 <meta property="article:author" content="morsol">
 <meta property="article:tag" content="多线程">
 <meta name="twitter:card" content="summary">
@@ -90,7 +90,7 @@
                                     <a class="main-nav-list-link" href="/moersuo.github.io/">主页</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/">后段学习</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a></li></ul></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode/">Leetcode</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a></li></ul></li></ul>
                                     
                         </ul>
                         <nav id="sub-nav">
@@ -147,7 +147,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/">后段学习</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+    <a class="page-title-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
     </h1>
 </div>
 
@@ -333,7 +333,7 @@
         "headline": "线程的五大状态",
         "image": "http://moersuo.github.io",
         "keywords": "多线程",
-        "genre": "后段学习 多线程",
+        "genre": "后端学习 多线程",
         "datePublished": "2020-09-29",
         "dateCreated": "2020-09-29",
         "dateModified": "2020-10-03",
@@ -427,6 +427,15 @@ new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态�
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode/">Leetcode</a></p>
+                            <p class="item-title"><a href="/moersuo.github.io/2020/10/04/Leetcode%E9%A2%98%E8%A7%A309-%E5%9B%9E%E6%96%87%E6%95%B0/" class="title">Leetcode题解09 回文数</a></p>
+                            <p class="item-date"><time datetime="2020-10-04T03:36:19.000Z" itemprop="datePublished">2020-10-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></p>
                             <p class="item-title"><a href="/moersuo.github.io/2020/10/02/%E5%89%91%E6%8C%87offer-05%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/" class="title">剑指offer 05替换空格</a></p>
                             <p class="item-date"><time datetime="2020-10-02T08:09:27.000Z" itemprop="datePublished">2020-10-02</time></p>
@@ -436,7 +445,7 @@ new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态�
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/">后段学习</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></p>
                             <p class="item-title"><a href="/moersuo.github.io/2020/09/29/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/" class="title">线程的五大状态</a></p>
                             <p class="item-date"><time datetime="2020-09-29T09:26:52.000Z" itemprop="datePublished">2020-09-29</time></p>
                         </div>
@@ -460,15 +469,6 @@ new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a></p>
-                            <p class="item-title"><a href="/moersuo.github.io/2020/09/27/%E5%89%91%E6%8C%87offer-22%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/" class="title">剑指offer 22链表中倒数第k个节点</a></p>
-                            <p class="item-date"><time datetime="2020-09-27T13:58:22.000Z" itemprop="datePublished">2020-09-27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -478,7 +478,7 @@ new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/">后段学习</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E6%AE%B5%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode/">Leetcode</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/moersuo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -488,7 +488,7 @@ new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/09/">九月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/08/">八月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/09/">九月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/08/">八月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/moersuo.github.io/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -498,7 +498,7 @@ new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode%E9%A2%98%E8%A7%A3/" rel="tag">Leetcode题解</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode/" rel="tag">Leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Leetcode%E9%A2%98%E8%A7%A3/" rel="tag">Leetcode题解</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/moersuo.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
