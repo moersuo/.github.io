@@ -6,7 +6,7 @@
   <link href="/moersuo.github.io/atom.xml" rel="self"/>
   
   <link href="http://moersuo.github.io/"/>
-  <updated>2020-10-16T04:48:37.441Z</updated>
+  <updated>2020-10-16T07:03:09.287Z</updated>
   <id>http://moersuo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>注解</title>
+    <link href="http://moersuo.github.io/2020/10/16/%E6%B3%A8%E8%A7%A3/"/>
+    <id>http://moersuo.github.io/2020/10/16/%E6%B3%A8%E8%A7%A3/</id>
+    <published>2020-10-16T07:00:59.000Z</published>
+    <updated>2020-10-16T07:03:09.287Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一-什么是注解"><a href="#一-什么是注解" class="headerlink" title="一. 什么是注解"></a>一. 什么是注解</h1><h2 id="1-1-作用："><a href="#1-1-作用：" class="headerlink" title="1.1 作用："></a>1.1 作用：</h2><ul><li>不是程序本身，可以对程序作出解释（等同注释）</li><li><strong>可以被其他程序（如编译器等）读取</strong></li></ul><h2 id="1-2-格式："><a href="#1-2-格式：" class="headerlink" title="1.2 格式："></a>1.2 格式：</h2><ul><li>注释是以“@注释名”在代码中存在的，还可以添加一些参数值，如：@SuppressWarnings(value=”unchecked”)</li></ul><h2 id="1-3-位置："><a href="#1-3-位置：" class="headerlink" title="1.3 位置："></a><strong>1.3 位置：</strong></h2><ul><li>可以附加在package,class,method,field等上面，相当于给他们添加了额外的辅助信息，我们可以通过反射机制编程实现对这些元数据的访问。</li></ul><h2 id="二-内置注解"><a href="#二-内置注解" class="headerlink" title="二.内置注解"></a>二.内置注解</h2><ul><li>@Override: 定义在java.lang.Override中，此注释只适用于修辞方法，表示一个方法声明打算重写超类中的另一个方法声明</li><li>@Deprecated: 定义在java.lang.Deprecated中，此注释可以用于修辞方法，属性，类，表示不鼓励程序员使用这样的元素，通常是因为它很危险或者存在更好的选择（已淘汰）</li><li>@SuppressWarnings： 定义在java.lang.SuppressWarnings中，用来抑制编译时的惊噶破信息。<ul><li>与前两个注释不同的是，此注解需要添加一个参数才能正确使用，这些参数均为已定义好的，选择使用即可。</li><li>@SuppressWarnings(“all”)</li><li>@SuppressWarnings(“unchecked”)</li><li>@SuppressWarnings(“unchecked”,”deprecation”)</li></ul></li></ul><h1 id="三-元注解"><a href="#三-元注解" class="headerlink" title="三. 元注解"></a>三. 元注解</h1><ul><li>元注解的作用就是负责注解其他注解，java定义了四个标准的meta-annotation类型，他们被用来提供对其他annotation类型作说明</li><li>这些类型和他们所支持的类在java.lang.annotation包中可以找到. @Target,@Retention,@Documented,@Inherited<ul><li><strong>@Targe</strong>t: 用于描述注解的使用范围</li><li><strong>@Retention:</strong> 表示需要在什么级别保存该注释信息，用于描述注解的生命周期（SOURCE&lt;CLASS&lt;<strong>RUNTIME</strong>）<ul><li>SOURCE：只在本编译单元的编译过程中保留，并不写入Class文件中</li><li>CLASS：在编译的过程中保留并且会写入Class文件中，但是JVM在加载类的时候不需要将其加载为运行时可见的（反射可见）的注解</li><li><strong>RUNTIME</strong>：在编译过程中保留，会写入Class文件，并且JVM加载类的时候也会将其加载为反射可见的注解</li></ul></li><li>@Document：说明该注解将被包含在javadoc中</li><li>@Inherited：说明子类可以继承父类中的该注解</li></ul></li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@LaAnnotation被限定只能使用在类、接口或方法上面</span></span><br><span class="line"><span class="meta">@Target</span>(value = &#123;ElementType.TYPE,ElementType.METHOD&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> LaAnnotation &#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">age</span><span class="params">()</span> <span class="keyword">default</span> 18</span>;</span><br><span class="line">    <span class="keyword">int</span>[] La();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="四-自定义注解"><a href="#四-自定义注解" class="headerlink" title="四. 自定义注解"></a>四. 自定义注解</h1><ul><li>使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口</li><li>@interface用来声明一个注解，格式：public@interface注解名（定义内容）</li><li>()不是定义方法参数的地方，也不能在括号中定义任何参数，仅仅只是一个特殊的语法；</li><li>返回值的类型就是参数的类型（返回值只能是基本类型，class，String，enum）</li><li>可以通过default来声明参数的默认值</li><li>如果只有一个参数成员，一般参数名为value</li><li>注解元素必须要有值，我们定义注解元素时，经常用空字符串，0作为默认值</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> LaAnnotation &#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">age</span><span class="params">()</span> <span class="keyword">default</span> 1</span>;</span><br><span class="line"><span class="keyword">int</span>[] La();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;一-什么是注解&quot;&gt;&lt;a href=&quot;#一-什么是注解&quot; class=&quot;headerlink&quot; title=&quot;一. 什么是注解&quot;&gt;&lt;/a&gt;一. 什么是注解&lt;/h1&gt;&lt;h2 id=&quot;1-1-作用：&quot;&gt;&lt;a href=&quot;#1-1-作用：&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="后端学习" scheme="http://moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="JAVA" scheme="http://moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/JAVA/"/>
+    
+    
+      <category term="注解" scheme="http://moersuo.github.io/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指offer09：用两个栈实现队列</title>
