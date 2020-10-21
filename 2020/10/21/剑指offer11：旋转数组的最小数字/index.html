@@ -6,16 +6,23 @@
     
 
     
-    <title>分类: 多线程 | Morsol</title>
+    <title>剑指offer11：旋转数组的最小数字 | Morsol</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Morsol">
-<meta property="og:url" content="http://moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
+    <meta name="keywords" content="剑指offer" />
+    
+    <meta name="description" content="题目： 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。   示例：12输入：[2,2,2,0,1]输出：0  法一：笨法子，排序思路： 使用任意排序方法，再返回最小值 本次使用冒泡做例子  代码：123456789101112">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer11：旋转数组的最小数字">
+<meta property="og:url" content="http://moersuo.github.io/2020/10/21/%E5%89%91%E6%8C%87offer11%EF%BC%9A%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/index.html">
 <meta property="og:site_name" content="Morsol">
+<meta property="og:description" content="题目： 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。   示例：12输入：[2,2,2,0,1]输出：0  法一：笨法子，排序思路： 使用任意排序方法，再返回最小值 本次使用冒泡做例子  代码：123456789101112">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-21T08:01:50.000Z">
+<meta property="article:modified_time" content="2020-10-21T09:19:05.129Z">
 <meta property="article:author" content="morsol">
+<meta property="article:tag" content="剑指offer">
 <meta name="twitter:card" content="summary">
     
 
@@ -140,125 +147,206 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-folder-open"></i>分类: <em class="page-title-link">多线程</em>
+    <a class="page-title-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87offer/">剑指offer</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-剑指offer11：旋转数组的最小数字" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/moersuo.github.io/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
-            </div>
-            <div class="date"><time datetime="2020-10-08T09:31:50.000Z" itemprop="datePublished">2020-10-08</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/moersuo.github.io/2020/10/08/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B/">生产者消费者模型</a>
+        剑指offer11：旋转数组的最小数字
         </h1>
     
 
-        <p class="article-excerpt">
-            概述：生产者消费者消费者模型是一种并发编程中的常见问题，基于等待/通知机制。其基本思想是有一块缓冲区作为仓库，生产者将产品放入枪库，消费者从仓库中取出产品。这个仓库就是一个阻塞队列，生产者生产的产品不直接给消费者消费而是给阻塞队列。这个阻塞队列目的是解决生产者消费者的强耦合。
-解决的实际问题：
-生产与消费的速度不匹配
-
-软件开发过程中解耦，使生产者与消费者间的强耦合变成生产者和缓冲区，消费者与缓存
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
+            </header>
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/moersuo.github.io/2020/10/21/%E5%89%91%E6%8C%87offer11%EF%BC%9A%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/" class="article-date">
+         <time datetime="2020-10-21T08:01:50.000Z" itemprop="datePublished">2020-10-21</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/moersuo.github.io/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a>
+    </div>
+
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">本文字数: </span>
+      <span class="post-count">449</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">阅读时长: </span>
+      <span class="post-count">2 分钟 </span>
+   </div>
+
+
             </div>
-            <div class="date"><time datetime="2020-09-29T09:26:52.000Z" itemprop="datePublished">2020-09-29</time></div>
-        </div>
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/moersuo.github.io/2020/09/29/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/">线程的五大状态</a>
-        </h1>
-    
+        
+        <div class="article-entry" itemprop="articleBody">
+            
 
-        <p class="article-excerpt">
-            概述：线程的五大状态为：创建状态，就绪状态，阻塞状态，运行状态，死亡状态
-new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态。
-就绪状态： 当调用start()方法，线程立即进入就绪状态，但不意味着立即调度执行。
-运行状态：进入运行状态，线程才真正执行线程体的代码块。
-阻塞状态： 当调用sleep，wait或同步锁定时，线程进入阻塞状态，就是代码不往下执行
-        </p>
+            
+
+            
+
+            <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 <code>[3,4,5,1,2]</code> 为 <code>[1,2,3,4,5]</code> 的一个旋转，该数组的最小值为1。 </p>
+</blockquote>
+<h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[2,2,2,0,1]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+
+<h1 id="法一：笨法子，排序"><a href="#法一：笨法子，排序" class="headerlink" title="法一：笨法子，排序"></a>法一：笨法子，排序</h1><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
+<li>使用任意排序方法，再返回最小值</li>
+<li>本次使用冒泡做例子</li>
+</ul>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            flag = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = numbers.length - <span class="number">1</span>;j &gt;i;j--)&#123;        </span><br><span class="line">                <span class="keyword">int</span> temp;</span><br><span class="line">                <span class="keyword">if</span>(numbers[j] &lt;numbers[j-<span class="number">1</span>])&#123;</span><br><span class="line">                    temp = numbers[j];</span><br><span class="line">                    numbers[j] = numbers[j-<span class="number">1</span>];</span><br><span class="line">                    numbers[j-<span class="number">1</span>] = temp;</span><br><span class="line">                    flag = <span class="keyword">true</span>;</span><br><span class="line">                &#125;          </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!flag) <span class="keyword">break</span>; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> numbers[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复杂度："><a href="#复杂度：" class="headerlink" title="复杂度："></a>复杂度：</h2><ul>
+<li>根据你的排序算法而定，冒泡的时间复杂度为O(n*n)</li>
+</ul>
+<h1 id="法二：二分法"><a href="#法二：二分法" class="headerlink" title="法二：二分法"></a>法二：二分法</h1><h2 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h2><ul>
+<li>排序数组的查找问题首先考虑使用 <strong>二分法</strong> 解决，其可将 <strong>遍历法</strong> 的 <strong>线性级别</strong> 时间复杂度降低至 <strong>对数级别</strong> 。</li>
+<li><strong>初始化：</strong>声明left，right为数组左右两端点</li>
+<li><strong>循环二分：</strong>设mid=left+(right-left)/2<ul>
+<li>当numbers[mid] &lt; numbers[right]时，最小值必然不在right右侧，right = mid</li>
+<li>当numbers[mid] &gt; numbers[right]时，最小值必然不等于mid，且不在mid左侧，left = mid+1</li>
+<li>当numbers[mid] = numbers[right]时，暴力使用right–排除干扰项</li>
+</ul>
+</li>
+<li><strong>返回值：</strong>当left=right时跳出循环，返回left即可</li>
+</ul>
+<h2 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (left+(right-left)/<span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span>(numbers[mid] &lt; numbers[right])&#123;</span><br><span class="line">                 right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[mid] &gt; numbers[right]) &#123;</span><br><span class="line">                left = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[mid] == numbers[right])&#123;</span><br><span class="line">                 right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> numbers[left];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://moersuo.github.io/2020/10/21/%E5%89%91%E6%8C%87offer11%EF%BC%9A%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/" data-id="ckgj6q4la0000not94uwzgvxo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "morsol"
+        },
+        "headline": "剑指offer11：旋转数组的最小数字",
+        "image": "http://moersuo.github.io",
+        "keywords": "剑指offer",
+        "genre": "算法 剑指offer",
+        "datePublished": "2020-10-21",
+        "dateCreated": "2020-10-21",
+        "dateModified": "2020-10-21",
+        "url": "http://moersuo.github.io/2020/10/21/剑指offer11：旋转数组的最小数字/",
+        "description": "题目：
+把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。 
+
+示例：12输入：[2,2,2,0,1]输出：0
+
+法一：笨法子，排序思路：
+使用任意排序方法，再返回最小值
+本次使用冒泡做例子
+
+代码：123456789101112",
+        "wordCount": 650
+    }
+</script>
+
 </article>
-    
-        </div>
-    
 
+    <section id="comments">
     
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
-            </div>
-            <div class="date"><time datetime="2020-09-27T06:19:28.000Z" itemprop="datePublished">2020-09-27</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/moersuo.github.io/2020/09/27/%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B/">三种方式实现多线程</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            java实现多线程的三种方式继承Thread类，实现Runnable接口，实现callable接口
-*继承Thread类子类继承Thead类具备多线程能力
-启动线程：子类对象.start()
-不建议使用：避免OOP单继承局限性
-12345678910111213141516public class Thread1 extends Thread&#123;    @Override    // 使用
-        </p>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
     </div>
-</article>
+
+
     
-        </div>
-    
-
-
-    </div></section>
-
+    </section>
 
 
 
@@ -288,6 +376,19 @@ new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态�
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/moersuo.github.io/2020/10/20/%E5%89%91%E6%8C%87offer10-2%EF%BC%9A%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">剑指offer10-2：青蛙跳台阶 </p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -439,11 +540,13 @@ new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态�
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'http://moersuo.github.io/2020/10/21/%E5%89%91%E6%8C%87offer11%EF%BC%9A%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

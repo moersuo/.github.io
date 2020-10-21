@@ -6,13 +6,13 @@
     
 
     
-    <title>分类: 多线程 | Morsol</title>
+    <title>归档: 2020 | Morsol</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta property="og:type" content="website">
 <meta property="og:title" content="Morsol">
-<meta property="og:url" content="http://moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
+<meta property="og:url" content="http://moersuo.github.io/archives/2020/page/3/index.html">
 <meta property="og:site_name" content="Morsol">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="morsol">
@@ -140,7 +140,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-folder-open"></i>分类: <em class="page-title-link">多线程</em>
+    <i class="icon fa fa-archive"></i>归档: 2020
     </h1>
 </div>
 
@@ -166,89 +166,25 @@
         
         <div class="article-meta">
             <div class="category">
-            <a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+            <a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E7%AE%97%E6%B3%95/Leetcode%E9%A2%98%E8%A7%A3/">Leetcode题解</a>
             </div>
-            <div class="date"><time datetime="2020-10-08T09:31:50.000Z" itemprop="datePublished">2020-10-08</time></div>
+            <div class="date"><time datetime="2020-06-18T15:50:04.000Z" itemprop="datePublished">2020-06-18</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/moersuo.github.io/2020/10/08/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B/">生产者消费者模型</a>
+        <a href="/moersuo.github.io/2020/06/18/Leetcode%E9%A2%98%E8%A7%A301-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">Leetcode题解01: 两数之和</a>
         </h1>
     
 
         <p class="article-excerpt">
-            概述：生产者消费者消费者模型是一种并发编程中的常见问题，基于等待/通知机制。其基本思想是有一块缓冲区作为仓库，生产者将产品放入枪库，消费者从仓库中取出产品。这个仓库就是一个阻塞队列，生产者生产的产品不直接给消费者消费而是给阻塞队列。这个阻塞队列目的是解决生产者消费者的强耦合。
-解决的实际问题：
-生产与消费的速度不匹配
+            两数之和
+题目：给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
 
-软件开发过程中解耦，使生产者与消费者间的强耦合变成生产者和缓冲区，消费者与缓存
-        </p>
-    </div>
-</article>
-    
+示例：
+给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9所以返回 [0, 1]
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
-            </div>
-            <div class="date"><time datetime="2020-09-29T09:26:52.000Z" itemprop="datePublished">2020-09-29</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/moersuo.github.io/2020/09/29/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/">线程的五大状态</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            概述：线程的五大状态为：创建状态，就绪状态，阻塞状态，运行状态，死亡状态
-new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态。
-就绪状态： 当调用start()方法，线程立即进入就绪状态，但不意味着立即调度执行。
-运行状态：进入运行状态，线程才真正执行线程体的代码块。
-阻塞状态： 当调用sleep，wait或同步锁定时，线程进入阻塞状态，就是代码不往下执行
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/moersuo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
-            </div>
-            <div class="date"><time datetime="2020-09-27T06:19:28.000Z" itemprop="datePublished">2020-09-27</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/moersuo.github.io/2020/09/27/%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B/">三种方式实现多线程</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            java实现多线程的三种方式继承Thread类，实现Runnable接口，实现callable接口
-*继承Thread类子类继承Thead类具备多线程能力
-启动线程：子类对象.start()
-不建议使用：避免OOP单继承局限性
-12345678910111213141516public class Thread1 extends Thread&#123;    @Override    // 使用
+JAVA：官方
         </p>
     </div>
 </article>
@@ -260,6 +196,10 @@ new:  Thread t = new Thread() 线程一旦创建，就进入到了创建状态�
     </div></section>
 
 
+    <nav id="page-nav">
+        <span class="pages">第 3 页，共 3 页</span>
+        <a class="extend prev" rel="prev" href="/moersuo.github.io/archives/2020/page/2/">&laquo;</a><a class="page-number" href="/moersuo.github.io/archives/2020/">1</a><a class="page-number" href="/moersuo.github.io/archives/2020/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
 
 
                         </div>
