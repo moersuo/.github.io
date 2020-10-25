@@ -1312,13 +1312,13 @@
 <h3 id="表单标签：form"><a href="#表单标签：form" class="headerlink" title="表单标签：form"></a>表单标签：form</h3><h4 id="基本内容："><a href="#基本内容：" class="headerlink" title="基本内容："></a>基本内容：</h4><ul>
 <li><p>html页面中，用来收集用户信息的所有元素集合，然后把这些信息发送给服务器。</p>
 </li>
-<li><p><input type="text" vale="默认值">文本输入框</p>
+<li><p>&lt;input type=”text” vale=”默认值”&gt;文本输入框</p>
 </li>
-<li><p><input type="password" vale="默认值">密码输入框</p>
+<li><p>&lt;input type=”password” vale=”默认值”&gt;密码输入框</p>
 </li>
-<li><p><input type="radio" name="性别"> 单选框（name属性进行分组，checed=”checked”默认选中）</p>
+<li><p>&lt;input type=”radio” name=”性别”&gt; 单选框（name属性进行分组，checed=”checked”默认选中）</p>
 </li>
-<li><p><input type="checkbox">复选框</p>
+<li><p>&lt;input type=”checkbox”&gt;复选框</p>
 </li>
 <li><p>select标签：下拉列表框</p>
 <ul>
@@ -1332,40 +1332,67 @@
 <li>起始标签和结束标签中的内容为默认值</li>
 </ul>
 </li>
-<li><p><input type="reset"> 重置按钮，回复为默认值。value属性修改按钮上的文本</p>
+<li><p>&lt;input type=”reset”&gt; 重置按钮，回复为默认值。value属性修改按钮上的文本</p>
 </li>
-<li><p><input type="submit"> 提交按钮，value属性修改按钮上的文本</p>
+<li><p>&lt;input type=”submit”&gt; 提交按钮，value属性修改按钮上的文本</p>
 </li>
-<li><p><input type="button"> 按钮，alue属性修改按钮上的文本</p>
+<li><p>&lt;input type=”button”&gt; 按钮，alue属性修改按钮上的文本</p>
 </li>
-<li><p><input type="file"> 文件上传域</p>
+<li><p>&lt;input type=”file”&gt; 文件上传域</p>
 </li>
-<li><p><input type="hidden"> 隐藏域，发送某些不需要用户看见的信息，会被服务器接受</p>
+<li><p>&lt;input type=”hidden”&gt; 隐藏域，发送某些不需要用户看见的信息，会被服务器接受</p>
 </li>
 </ul>
 <h4 id="表单格式化："><a href="#表单格式化：" class="headerlink" title="表单格式化："></a><strong>表单格式化：</strong></h4><ul>
-<li><p>使用table标签</p>
+<li>使用table标签</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">vale</span>=<span class="string">"默认值"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>密码<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">vale</span>=<span class="string">"默认值"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="提交细节"><a href="#提交细节" class="headerlink" title="提交细节:"></a>提交细节:</h4><ul>
+<li>action属性设置提交的服务器地址</li>
+<li>method属性设置提交的防止GET（默认值）或POST<ul>
+<li>GET请求特点：<ul>
+<li>浏览器地址栏中的地址是：action属性【+？+请求参数】，请求参数的格式：name=value&amp;name=value</li>
+<li>不安全</li>
+<li>有数据长度的限制</li>
+</ul>
 </li>
-<li><pre><code class="html"><span class="tag">&lt;<span class="name">form</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">table</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">tr</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">td</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">td</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">td</span>&gt;</span>
-                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">vale</span>=<span class="string">"默认值"</span>&gt;</span>
-            <span class="tag">&lt;/<span class="name">td</span>&gt;</span>
-        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">tr</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">td</span>&gt;</span>密码<span class="tag">&lt;/<span class="name">td</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">td</span>&gt;</span>
-                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">vale</span>=<span class="string">"默认值"</span>&gt;</span>
-            <span class="tag">&lt;/<span class="name">td</span>&gt;</span>
-        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span>
-    <span class="tag">&lt;/<span class="name">table</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">form</span>&gt;</span>
-<span class="comment"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 提交细节：</span><br><span class="line"></span><br><span class="line">* action属性设置提交的服务器地址</span><br><span class="line">* method属性设置提交的防止GET（默认值）或POST</span><br><span class="line">  * GET请求特点：</span><br><span class="line">    * 浏览器地址栏中的地址是：action属性【+？+请求参数】，请求参数的格式：name&#x3D;value&amp;name&#x3D;value</span><br><span class="line">    * 不安全</span><br><span class="line">    * 有数据长度的限制</span><br><span class="line">  * post请求特点：</span><br><span class="line">    * 浏览器地址栏中的地址只有action属性</span><br><span class="line">    * 相对于GET安全</span><br><span class="line">    * 理论上没有数据长度限制</span><br><span class="line">* 表单提交时，数据没有发送给服务器的三种情况：</span><br><span class="line">  * 表单项没有name属性值</span><br><span class="line">  * 单选，复选（下拉列表中的option标签）都需要添加value属性，用来发送给服务器</span><br><span class="line">  * 表单项不在提交的form标签中</span><br><span class="line"></span><br><span class="line">## 2.7 其他标签</span><br><span class="line"></span><br><span class="line">### div标签：</span><br><span class="line"></span><br><span class="line">* **默认独占一行**</span><br><span class="line"></span><br><span class="line">### span标签：</span><br><span class="line"></span><br><span class="line">* **它的长度是封装数据的长度**</span><br><span class="line"></span><br><span class="line">### p段落标签：</span><br><span class="line"></span><br><span class="line">* **默认会在段落的上方或下方各空出一行（如果已有就不再空）**</span><br><span class="line"></span><br><span class="line"># 三.css</span><br><span class="line"></span><br><span class="line">## 3.1 概述：</span><br><span class="line"></span><br><span class="line">* css是层叠样式表单，是用于（增强）控制网页样式并允许将样式信息与网页内容分离的一种标记性语言</span><br><span class="line"></span><br><span class="line">## 3.2 css语法规则:</span><br><span class="line"></span><br><span class="line">### 选择器：</span><br><span class="line"></span><br><span class="line">* 浏览器根据选择器绝对受css样式影响的HTML元素（标签）</span><br><span class="line"></span><br><span class="line">### 属性（property）：</span><br><span class="line"></span><br><span class="line">* 是打算更改的样式名，并且每个属性都有一个值，属性和值被冒号分开，并由花括号包围，这样就组成了一个完整的样式声明（declaration），eg：p&#123;color:blue&#125;</span><br><span class="line">* 多个声明：如果要定义不止一个声明，则需要用分号将每个声明分开，虽然最后一条声明的最后可以不加分号（但尽量加）eg：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;html</span><br><span class="line">p&#123;</span><br><span class="line">	color:red;</span><br><span class="line">	font_size:30px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!--一般每行只写一个属性--&gt;</span><br></pre></td></tr></table></figure></span>
-</code></pre>
+<li>post请求特点：<ul>
+<li>浏览器地址栏中的地址只有action属性</li>
+<li>相对于GET安全</li>
+<li>理论上没有数据长度限制</li>
+</ul>
 </li>
 </ul>
+</li>
+<li>表单提交时，数据没有发送给服务器的三种情况：<ul>
+<li>表单项没有name属性值</li>
+<li>单选，复选（下拉列表中的option标签）都需要添加value属性，用来发送给服务器</li>
+<li>表单项不在提交的form标签中</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-7-其他标签"><a href="#2-7-其他标签" class="headerlink" title="2.7 其他标签"></a>2.7 其他标签</h2><h3 id="div标签："><a href="#div标签：" class="headerlink" title="div标签："></a>div标签：</h3><ul>
+<li><strong>默认独占一行</strong></li>
+</ul>
+<h3 id="span标签："><a href="#span标签：" class="headerlink" title="span标签："></a>span标签：</h3><ul>
+<li><strong>它的长度是封装数据的长度</strong></li>
+</ul>
+<h3 id="p段落标签："><a href="#p段落标签：" class="headerlink" title="p段落标签："></a>p段落标签：</h3><ul>
+<li><strong>默认会在段落的上方或下方各空出一行（如果已有就不再空）</strong></li>
+</ul>
+<h1 id="三-css"><a href="#三-css" class="headerlink" title="三.css"></a>三.css</h1><h2 id="3-1-概述："><a href="#3-1-概述：" class="headerlink" title="3.1 概述："></a>3.1 概述：</h2><ul>
+<li>css是层叠样式表单，是用于（增强）控制网页样式并允许将样式信息与网页内容分离的一种标记性语言</li>
+</ul>
+<h2 id="3-2-css语法规则"><a href="#3-2-css语法规则" class="headerlink" title="3.2 css语法规则:"></a>3.2 css语法规则:</h2><h3 id="选择器："><a href="#选择器：" class="headerlink" title="选择器："></a>选择器：</h3><ul>
+<li>浏览器根据选择器绝对受css样式影响的HTML元素（标签）</li>
+</ul>
+<h3 id="属性（property）："><a href="#属性（property）：" class="headerlink" title="属性（property）："></a>属性（property）：</h3><ul>
+<li>是打算更改的样式名，并且每个属性都有一个值，属性和值被冒号分开，并由花括号包围，这样就组成了一个完整的样式声明（declaration），eg：p{color:blue}</li>
+<li>多个声明：如果要定义不止一个声明，则需要用分号将每个声明分开，虽然最后一条声明的最后可以不加分号（但尽量加）eg：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">	color:red;</span><br><span class="line">	font_size:30px;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">&lt;!--一般每行只写一个属性--&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="3-3-CSS结合HTML"><a href="#3-3-CSS结合HTML" class="headerlink" title="3.3 CSS结合HTML"></a>3.3 CSS结合HTML</h2><ul>
 <li><p>在标签的style属性上设置<strong>“key:value value;”</strong>修改标签样式</p>
 </li>
