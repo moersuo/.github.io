@@ -1961,7 +1961,7 @@
   </entry>
   <entry>
     <title>Leetcode题解62：不同路径</title>
-    <url>/moersuo.github.io/2021/05/18/Leetcode%E9%A2%98%E8%A7%A362%EF%BC%9A%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</url>
+    <url>/moersuo.github.io/2021/05/18/Leetcode%E9%A2%98%E8%A7%A362-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</url>
     <content><![CDATA[<h1 id="不同路径"><a href="#不同路径" class="headerlink" title="不同路径"></a>不同路径</h1><h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
 <p>一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。</p>
 <p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。</p>
